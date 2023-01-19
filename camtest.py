@@ -16,8 +16,8 @@ Default 1920x1080 displayd in a 1/4 size window
 """
 def gstreamer_pipeline(
     sensor_id=2,
-    capture_width=1920,
-    capture_height=1080,
+    capture_width=1280,
+    capture_height=720,
     display_width=320,
     display_height=180,
     framerate=30,
@@ -25,12 +25,17 @@ def gstreamer_pipeline(
 ):
     return (
             "v4l2src device=/dev/video%d ! "
-            "video/x-raw, width=(int)1280, height=(int)720, framerate=(fraction)30/1 ! "
+            "video/x-raw, width=(int)%d, height=(int)%d, framerate=(fraction)%d/1 ! "
             "videoconvert ! "
-            "videoscale ! video/x-raw, width=(int)320, height=(int)180 ! "
+            "videoscale ! video/x-raw, width=(int)%d, height=(int)%d ! "
             "appsink"
         % (
             sensor_id,
+            capture_width,
+            capture_height,
+            framerate,
+            display_width,
+            display_height,
         )
     )
 
