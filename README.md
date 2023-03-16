@@ -199,4 +199,8 @@ zeromq                    4.3.4                h01db608_1    conda-forge
 zlib                      1.2.13               h4e544f5_4    conda-forge
 zstd                      1.5.2                hfcb3217_0    anaconda
 ```
+sudo apt install libzmq3-dev 
 
+pip3 install pyzmq
+
+sudo pip3 install install PyGObject
